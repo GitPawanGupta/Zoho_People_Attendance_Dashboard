@@ -6,7 +6,7 @@ import StarIcon from '@mui/icons-material/Star';
 import Sidebar from './Components_temp/Sidebar';
 // import TopBanner from '../Components_temp/TopBanner';
 import Dashboard from './pages/Dashboard';
-import Calendar from "./pages/Calendar";
+import Calendar from "./pages/Calendar"; // You imported it as Calendar
 
 import Home from './pages/Home';
 import Header from './Components_temp/Header';
@@ -28,10 +28,9 @@ function App() {
         <main style={{ padding: '20px', flexGrow: 1 }}>
           <Routes>
             <Route path="/" element={<Home />} />
-             <Route path="/dashboard" element={<Dashboard />} />
-             <Route path="/calendar" element={<Calendar />} />
-             <Route path="/organization" element={<div>Organization Page</div>} />
-            {/* <Route path ="/header" element={<Header />} />  */}
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/calendar" element={<Calendar />} /> {/* ✅ Fixed here */}
+            <Route path="/organization" element={<div>Organization Page</div>} />
             {/* <Route path="/leave" element={<Leave />} />
             <Route path="/attendance" element={<Attendance />} />
             <Route path="/time" element={<TimeTracker />} />

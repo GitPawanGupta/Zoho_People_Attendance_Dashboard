@@ -15,7 +15,7 @@ const Home = () => {
   };
 
   // Start timer
-  const handleCheckIn = () => {
+  const CheckIn = () => {
     setIsCheckedIn(true);
     timerRef.current = setInterval(() => {
       setElapsedTime(prev => prev + 1);
@@ -23,7 +23,7 @@ const Home = () => {
   };
 
   // Stop timer
-  const handleCheckOut = () => {
+  const CheckOut = () => {
     setIsCheckedIn(false);
     clearInterval(timerRef.current);
   };
@@ -58,7 +58,7 @@ const Home = () => {
           <Button
             variant="outlined"
             color={isCheckedIn ? 'error' : 'success'}
-            onClick={isCheckedIn ? handleCheckOut : handleCheckIn}
+            onClick={isCheckedIn ? CheckOut : CheckIn}
           >
             {isCheckedIn ? 'Check-out' : 'Check-in'}
           </Button>

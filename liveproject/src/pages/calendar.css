@@ -1,0 +1,25 @@
+/* calendar.css */
+.fc-daygrid-day-number {
+  z-index: 10;
+}
+
+.fc-event.absent {
+  background-color: #f8d7da !important;
+  color: #721c24 !important;
+  border: 1px solid #f5c6cb;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 2px;
+  text-align: center;
+}
+
+.fc-event.present {
+  background-color: #d4edda !important;
+  color: #155724 !important;
+  border: 1px solid #c3e6cb;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 2px;
+  text-align: center;
+  white-space: pre-line;
+}
