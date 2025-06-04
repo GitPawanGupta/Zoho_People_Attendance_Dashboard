@@ -1,32 +1,86 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Box, Typography, Avatar, Button, Paper, Divider } from '@mui/material';
 
 const Home = () => {
+  const [isCheckedIn, setIsCheckedIn] = useState(false);
+  const [elapsedTime, setElapsedTime] = useState(0); // time in seconds
+  const timerRef = useRef(null);
+
+  // Format time to HH:MM:SS
+  const formatTime = (seconds) => {
+    const hrs = String(Math.floor(seconds / 3600)).padStart(2, '0');
+    const mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+    const secs = String(seconds % 60).padStart(2, '0');
+    return `${hrs} : ${mins} : ${secs}`;
+  };
+
+  // Start timer
+  const handleCheckIn = () => {
+    setIsCheckedIn(true);
+    timerRef.current = setInterval(() => {
+      setElapsedTime(prev => prev + 1);
+    }, 1000);
+  };
+
+  // Stop timer
+  const handleCheckOut = () => {
+    setIsCheckedIn(false);
+    clearInterval(timerRef.current);
+  };
+
+  useEffect(() => {
+    return () => clearInterval(timerRef.current); // Cleanup on unmount
+  }, []);
+
   return (
     <Box sx={{ pt: 12, px: 3, backgroundColor: "#f5f7fa", minHeight: "100vh" }}>
-      {/* Background image */}
-      <Box sx={{ height: "200px", backgroundImage: "url('https://source.unsplash.com/1600x400/?space')", backgroundSize: "cover", borderRadius: 2 }} />
+      {/* Background Banner */}
+      <Box
+        sx={{
+          height: "200px",
+          backgroundImage: "url('https://source.unsplash.com/1600x400/?space')",
+          backgroundSize: "cover",
+          borderRadius: 2,
+        }}
+      />
 
       <Box sx={{ display: 'flex', gap: 2, mt: -10 }}>
-        {/* Left Panel */}
+        {/* Left Check-in Card */}
         <Paper sx={{ p: 2, width: 280, textAlign: 'center' }}>
-          <Avatar sx={{ width: 80, height: 80, mx: "auto" }} />
+          <Avatar sx={{ width: 80, height: 80, mx: 'auto' }} />
           <Typography variant="h6">Pawan Kumar</Typography>
-          <Typography color="green">In</Typography>
-          <Typography variant="h5" sx={{ my: 1 }}>05 : 24 : 46</Typography>
-          <Button variant="outlined" color="error">Check-out</Button>
+          <Typography color={isCheckedIn ? "green" : "gray"}>
+            {isCheckedIn ? 'In' : 'Out'}
+          </Typography>
+          <Typography variant="h5" sx={{ my: 1 }}>
+            {formatTime(elapsedTime)}
+          </Typography>
+          <Button
+            variant="outlined"
+            color={isCheckedIn ? 'error' : 'success'}
+            onClick={isCheckedIn ? handleCheckOut : handleCheckIn}
+          >
+            {isCheckedIn ? 'Check-out' : 'Check-in'}
+          </Button>
           <Divider sx={{ my: 2 }} />
           <Typography variant="body2">Department Members</Typography>
           <Typography variant="caption">No Data Found</Typography>
         </Paper>
 
-        {/* Right Section */}
+        {/* Right Content */}
         <Box flex={1}>
-          {/* Activities Tabs */}
+          {/* Tabs Section */}
           <Paper sx={{ p: 2 }}>
             <Box sx={{ display: 'flex', gap: 3, mb: 2 }}>
               {['Activities', 'Feeds', 'Profile', 'Approvals', 'Leave', 'Attendance', 'Time Logs', 'Timesheets', 'Jobs', 'Files', 'Career History'].map(label => (
-                <Typography key={label} sx={{ cursor: 'pointer', fontWeight: label === 'Activities' ? 'bold' : 'normal', borderBottom: label === 'Activities' ? '2px solid blue' : 'none' }}>
+                <Typography
+                  key={label}
+                  sx={{
+                    cursor: 'pointer',
+                    fontWeight: label === 'Activities' ? 'bold' : 'normal',
+                    borderBottom: label === 'Activities' ? '2px solid blue' : 'none',
+                  }}
+                >
                   {label}
                 </Typography>
               ))}
@@ -37,7 +91,7 @@ const Home = () => {
             </Box>
           </Paper>
 
-          {/* Work Schedule */}
+          {/* Work Schedule Section */}
           <Paper sx={{ p: 2, mt: 2 }}>
             <Typography variant="h6">Work Schedule</Typography>
             <Typography variant="body2" sx={{ mb: 1 }}>01-Jun-2025 - 07-Jun-2025</Typography>
