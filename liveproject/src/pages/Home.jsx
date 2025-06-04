@@ -1,0 +1,56 @@
+import React from 'react';
+import { Box, Typography, Avatar, Button, Paper, Divider } from '@mui/material';
+
+const Home = () => {
+  return (
+    <Box sx={{ pt: 12, px: 3, backgroundColor: "#f5f7fa", minHeight: "100vh" }}>
+      {/* Background image */}
+      <Box sx={{ height: "200px", backgroundImage: "url('https://source.unsplash.com/1600x400/?space')", backgroundSize: "cover", borderRadius: 2 }} />
+
+      <Box sx={{ display: 'flex', gap: 2, mt: -10 }}>
+        {/* Left Panel */}
+        <Paper sx={{ p: 2, width: 280, textAlign: 'center' }}>
+          <Avatar sx={{ width: 80, height: 80, mx: "auto" }} />
+          <Typography variant="h6">Pawan Kumar</Typography>
+          <Typography color="green">In</Typography>
+          <Typography variant="h5" sx={{ my: 1 }}>05 : 24 : 46</Typography>
+          <Button variant="outlined" color="error">Check-out</Button>
+          <Divider sx={{ my: 2 }} />
+          <Typography variant="body2">Department Members</Typography>
+          <Typography variant="caption">No Data Found</Typography>
+        </Paper>
+
+        {/* Right Section */}
+        <Box flex={1}>
+          {/* Activities Tabs */}
+          <Paper sx={{ p: 2 }}>
+            <Box sx={{ display: 'flex', gap: 3, mb: 2 }}>
+              {['Activities', 'Feeds', 'Profile', 'Approvals', 'Leave', 'Attendance', 'Time Logs', 'Timesheets', 'Jobs', 'Files', 'Career History'].map(label => (
+                <Typography key={label} sx={{ cursor: 'pointer', fontWeight: label === 'Activities' ? 'bold' : 'normal', borderBottom: label === 'Activities' ? '2px solid blue' : 'none' }}>
+                  {label}
+                </Typography>
+              ))}
+            </Box>
+            <Box sx={{ mt: 1 }}>
+              <Typography variant="body1"><strong>Good Afternoon Pawan Kumar</strong></Typography>
+              <Typography variant="body2">Have a productive day!</Typography>
+            </Box>
+          </Paper>
+
+          {/* Work Schedule */}
+          <Paper sx={{ p: 2, mt: 2 }}>
+            <Typography variant="h6">Work Schedule</Typography>
+            <Typography variant="body2" sx={{ mb: 1 }}>01-Jun-2025 - 07-Jun-2025</Typography>
+            <Paper sx={{ p: 2, backgroundColor: "#f1f1f1", mb: 2 }}>
+              <Typography>General: 9:00 AM - 6:00 PM</Typography>
+              <Typography sx={{ color: "gray", fontSize: 12, mt: 1 }}>Wed 04 - 05:24 Hrs</Typography>
+            </Paper>
+            <Typography color="orange">You are yet to submit your time logs today!</Typography>
+          </Paper>
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+
+export default Home;
