@@ -10,6 +10,8 @@ import Calendar from "./pages/Calendar"; // You imported it as Calendar
 
 import Home from './pages/Home';
 import Header from './Components_temp/Header';
+import Attendance from './pages/Attendance';
+ import AttendanceSummary from './pages/AttendanceSummary';
 import { WidthFull } from '@mui/icons-material';
 // import Leave from './pages/Leave';
 // import Attendance from './pages/Attendance';
@@ -31,6 +33,10 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/calendar" element={<Calendar />} /> {/* ✅ Fixed here */}
             <Route path="/organization" element={<div>Organization Page</div>} />
+                        <Route path="/attendance" element={<Attendance />}>
+              <Route path="AttendanceSummary" element={<AttendanceSummary />} />
+            </Route>
+            {/* <Route path="AttendanceSummary" element={<AttendanceSummary />} /> */}
             {/* <Route path="/leave" element={<Leave />} />
             <Route path="/attendance" element={<Attendance />} />
             <Route path="/time" element={<TimeTracker />} />
