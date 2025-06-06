@@ -10,6 +10,7 @@ import Calendar from "./pages/Calendar";
 import Attendance from './pages/Attendance';
 import AttendanceSummary from './pages/AttendanceSummary';
 import Performance from './pages/Performance';
+import EmployeeManagement from './pages/EmployeeManagement';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/attendance/AttendanceSummary" element={<AttendanceSummary />} />
             <Route path="/performance" element={<Performance />} />
             <Route path="/more" element={<More />} />
+            <Route path="/employee-management" element={<EmployeeManagement />} />
 
             <Route path="/employee-engagement" element={<div>Employee Engagement Page</div>} />
             <Route path="/hr-letters" element={<div>HR Letters Page</div>} />
