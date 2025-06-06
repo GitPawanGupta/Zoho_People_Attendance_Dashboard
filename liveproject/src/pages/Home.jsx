@@ -38,7 +38,7 @@ const Home = () => {
       <Box
         sx={{
           height: "200px",
-          backgroundImage: "url('https://source.unsplash.com/1600x400/?space')",
+          backgroundImage: 'url(https://images.unsplash.com/photo-1606788075761-5b1cceeb5b18)',
           backgroundSize: "cover",
           borderRadius: 2,
         }}

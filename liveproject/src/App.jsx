@@ -1,25 +1,15 @@
-// App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import StarIcon from '@mui/icons-material/Star';
 
 import Sidebar from './Components_temp/Sidebar';
-// import TopBanner from '../Components_temp/TopBanner';
-import Dashboard from './pages/Dashboard';
-import Calendar from "./pages/Calendar"; // You imported it as Calendar
-
-import Home from './pages/Home';
 import Header from './Components_temp/Header';
+import More from './pages/More';
+import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
+import Calendar from "./pages/Calendar";
 import Attendance from './pages/Attendance';
- import AttendanceSummary from './pages/AttendanceSummary';
-import { WidthFull } from '@mui/icons-material';
-// import Leave from './pages/Leave';
-// import Attendance from './pages/Attendance';
-// import TimeTracker from './pages/TimeTracker';
-// import Performance from './pages/Performance';
-// import Files from './pages/hr-letters';
-// import More from './pages/More';
-// import Reports from './pages/Reports';
+import AttendanceSummary from './pages/AttendanceSummary';
+import Performance from './pages/Performance';
 
 function App() {
   return (
@@ -31,19 +21,16 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/calendar" element={<Calendar />} /> {/* ✅ Fixed here */}
-            <Route path="/organization" element={<div>Organization Page</div>} />
-                        <Route path="/attendance" element={<Attendance />}>
-              <Route path="AttendanceSummary" element={<AttendanceSummary />} />
-            </Route>
-            {/* <Route path="AttendanceSummary" element={<AttendanceSummary />} /> */}
-            {/* <Route path="/leave" element={<Leave />} />
+            <Route path="/calendar" element={<Calendar />} />
             <Route path="/attendance" element={<Attendance />} />
-            <Route path="/time" element={<TimeTracker />} />
+            <Route path="/attendance/AttendanceSummary" element={<AttendanceSummary />} />
             <Route path="/performance" element={<Performance />} />
-            <Route path="/hr-letters" element={<HRLetters />} />
             <Route path="/more" element={<More />} />
-            <Route path="/reports" element={<Reports />} /> */}
+
+            <Route path="/employee-engagement" element={<div>Employee Engagement Page</div>} />
+            <Route path="/hr-letters" element={<div>HR Letters Page</div>} />
+            <Route path="/travel" element={<div>Travel Page</div>} />
+            <Route path="/tasks" element={<div>Tasks Page</div>} />
           </Routes>
         </main>
       </div>
