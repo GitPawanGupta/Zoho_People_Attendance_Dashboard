@@ -5,9 +5,10 @@ const EmployeeManagement = () => {
   return (
     <Box
       sx={{
-        minHeight: '100vh',
-        backgroundColor: '#f1f4f8',
+        minHeight: '60vh',
+      minWidth:'1400px',
         padding: '24px',
+        zIndex:800,
       }}
     >
       <Box
